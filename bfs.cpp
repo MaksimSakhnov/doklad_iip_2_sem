@@ -6,7 +6,7 @@ using namespace std;
 class Graph
 {
     int numVertices;
-    list *adjLists;
+    list<int> *adjLists;
     bool* visited;
 public:
     Graph(int vertices);  
@@ -17,7 +17,7 @@ public:
 Graph::Graph(int vertices)
 {
     numVertices = vertices;
-    adjLists = new list[vertices];
+    adjLists = new list<int>[vertices];
 }
  
 void Graph::addEdge(int src, int dest)
@@ -32,12 +32,12 @@ void Graph::BFS(int startVertex)
     for(int i = 0; i < numVertices; i++)
         visited[i] = false;
  
-    list queue;
+    list <int> queue;
  
     visited[startVertex] = true;
     queue.push_back(startVertex);
  
-    list::iterator i;
+    list<int>::iterator i;
  
     while(!queue.empty())
     {
